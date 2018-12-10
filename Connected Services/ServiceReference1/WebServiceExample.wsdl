@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveStars">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="starsCount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="player" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveStarsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveStarsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ShowScores">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowScoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowScoresResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveStarsSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveStars" />
+  </wsdl:message>
+  <wsdl:message name="SaveStarsSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveStarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ShowScoresSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowScores" />
+  </wsdl:message>
+  <wsdl:message name="ShowScoresSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowScoresResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceExampleSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveStars">
+      <wsdl:input message="tns:SaveStarsSoapIn" />
+      <wsdl:output message="tns:SaveStarsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ShowScores">
+      <wsdl:input message="tns:ShowScoresSoapIn" />
+      <wsdl:output message="tns:ShowScoresSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceExampleSoap" type="tns:WebServiceExampleSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStars">
+      <soap:operation soapAction="http://tempuri.org/SaveStars" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowScores">
+      <soap:operation soapAction="http://tempuri.org/ShowScores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceExampleSoap12" type="tns:WebServiceExampleSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveStars">
+      <soap12:operation soapAction="http://tempuri.org/SaveStars" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShowScores">
+      <soap12:operation soapAction="http://tempuri.org/ShowScores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceExample">
+    <wsdl:port name="WebServiceExampleSoap" binding="tns:WebServiceExampleSoap">
+      <soap:address location="http://localhost:8278/WebServiceExample.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceExampleSoap12" binding="tns:WebServiceExampleSoap12">
+      <soap12:address location="http://localhost:8278/WebServiceExample.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
